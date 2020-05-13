@@ -83,7 +83,7 @@ class TasksScreen extends StatelessWidget {
   }
 }
 
-class TasksList extends StatelessWidget {
+class TasksList extends StatefulWidget {
   const TasksList({
     @required this.tasks,
   });
@@ -91,19 +91,53 @@ class TasksList extends StatelessWidget {
   final List<String> tasks;
 
   @override
+  _TasksListState createState() => _TasksListState();
+}
+
+class _TasksListState extends State<TasksList> {
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
-      itemCount: tasks.length,
+      itemCount: widget.tasks.length,
       itemBuilder: (context, index) {
-        return CheckboxListTile(
-          title: Text(
-            tasks[index],
-            style: TextStyle(fontSize: 18.0, color: Colors.black),
-          ),
-          value: false,
-          onChanged: null,
+        return CheckBox(
+          widget: widget,
+          index: index,
         );
+      },
+    );
+  }
+}
+
+class CheckBox extends StatefulWidget {
+  const CheckBox({
+    @required this.index,
+    @required this.widget,
+  });
+
+  final TasksList widget;
+  final int index;
+
+  @override
+  _CheckBoxState createState() => _CheckBoxState();
+}
+
+class _CheckBoxState extends State<CheckBox> {
+  bool isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      title: Text(
+        widget.widget.tasks[widget.index],
+        style: TextStyle(fontSize: 18.0, color: Colors.black),
+      ),
+      value: isChecked,
+      activeColor: Colors.lightBlueAccent,
+      onChanged: (value) {
+        setState(() {
+          isChecked = value;
+        });
       },
     );
   }
