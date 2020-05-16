@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:todoey_flutter/screens/add_task_screen.dart';
+import 'package:todoey_flutter/widgets/tasks_list.dart';
+import 'package:todoey_flutter/models/task.dart';
 
-class TasksScreen extends StatelessWidget {
-  final List<String> tasks = ['Buy milk', 'Buy eggs', 'Buy detergent'];
+class TasksScreen extends StatefulWidget {
+  @override
+  _TasksScreenState createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  List<Task> tasks = [
+    Task(name: 'Buy milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy bread'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +33,11 @@ class TasksScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: AddTaskScreen(),
+                  child: AddTaskScreen((newTaskTitle) {
+                    setState(() {
+                      tasks.add(Task(name: newTaskTitle));
+                    });
+                  }),
                 ),
               ),
             );
@@ -55,7 +71,7 @@ class TasksScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -66,7 +82,7 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              //padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -74,7 +90,9 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(tasks: tasks),
+              child: TasksList(tasks),
+              //New
+              // child: TasksList(tasks: tasks),
             ),
           ),
         ],
@@ -83,62 +101,62 @@ class TasksScreen extends StatelessWidget {
   }
 }
 
-class TasksList extends StatefulWidget {
-  const TasksList({
-    @required this.tasks,
-  });
+// class TasksList extends StatefulWidget {
+//   const TasksList({
+//     @required this.tasks,
+//   });
 
-  final List<String> tasks;
+//   final List<String> tasks;
 
-  @override
-  _TasksListState createState() => _TasksListState();
-}
+//   @override
+//   _TasksListState createState() => _TasksListState();
+// }
 
-class _TasksListState extends State<TasksList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
-      itemCount: widget.tasks.length,
-      itemBuilder: (context, index) {
-        return CheckBox(
-          widget: widget,
-          index: index,
-        );
-      },
-    );
-  }
-}
+// class _TasksListState extends State<TasksList> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
+//       itemCount: widget.tasks.length,
+//       itemBuilder: (context, index) {
+//         return CheckBox(
+//           widget: widget,
+//           index: index,
+//         );
+//       },
+//     );
+//   }
+// }
 
-class CheckBox extends StatefulWidget {
-  const CheckBox({
-    @required this.index,
-    @required this.widget,
-  });
+// class CheckBox extends StatefulWidget {
+//   const CheckBox({
+//     @required this.index,
+//     @required this.widget,
+//   });
 
-  final TasksList widget;
-  final int index;
+//   final TasksList widget;
+//   final int index;
 
-  @override
-  _CheckBoxState createState() => _CheckBoxState();
-}
+//   @override
+//   _CheckBoxState createState() => _CheckBoxState();
+// }
 
-class _CheckBoxState extends State<CheckBox> {
-  bool isChecked = false;
-  @override
-  Widget build(BuildContext context) {
-    return CheckboxListTile(
-      title: Text(
-        widget.widget.tasks[widget.index],
-        style: TextStyle(fontSize: 18.0, color: Colors.black),
-      ),
-      value: isChecked,
-      activeColor: Colors.lightBlueAccent,
-      onChanged: (value) {
-        setState(() {
-          isChecked = value;
-        });
-      },
-    );
-  }
-}
+// class _CheckBoxState extends State<CheckBox> {
+//   bool isChecked = false;
+//   @override
+//   Widget build(BuildContext context) {
+//     return CheckboxListTile(
+//       title: Text(
+//         widget.widget.tasks[widget.index],
+//         style: TextStyle(fontSize: 18.0, color: Colors.black),
+//       ),
+//       value: isChecked,
+//       activeColor: Colors.lightBlueAccent,
+//       onChanged: (value) {
+//         setState(() {
+//           isChecked = value;
+//         });
+//       },
+//     );
+//   }
+// }
