@@ -1,10 +1,5 @@
 # Todoey ✓
 
-<<<<<<< HEAD
-=======
-# Todoey ✓
-
->>>>>>> 2f9b21cb6277b9cb9f3376ee691a4a9a020236aa
 ## Our Goal
 
 This is a "fork" of [todoey](https://github.com/londonappbrewery/todoey-flutter) a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at www.appbrewery.co
