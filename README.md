@@ -7,10 +7,13 @@ This is a "fork" of [todoey](https://github.com/londonappbrewery/todoey-flutter)
 ## What it does
 
 A todolist app to keep track of all your tasks.
+<p align="center">
+  <img  height="400" src="images/todoey.gif">
+</p>
 
 ## the difference
 
-- Latest provider package
+- provider package ^4.1.2
 - Using CheckboxListTile widget instead of ListTile with Checkbox trailing so user can check by clicking both the title or the box
 - Use Dismissible widget to Swipe to delete instead of long pressed
 
