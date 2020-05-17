@@ -12,7 +12,7 @@ A todolist app to keep track of all your tasks.
 
 - Latest provider package
 - Using CheckboxListTile widget instead of ListTile with Checkbox trailing so user can check by clicking both the title or the box
-- Swipe to delete instead of long pressed
+- Use Dismissible widget to Swipe to delete instead of long pressed
 
 ## Getting Started
 
