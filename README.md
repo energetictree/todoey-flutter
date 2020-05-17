@@ -13,7 +13,7 @@ A todolist app to keep track of all your tasks.
 
 ## the difference
 
-- Latest provider package
+- provider package ^4.1.2
 - Using CheckboxListTile widget instead of ListTile with Checkbox trailing so user can check by clicking both the title or the box
 - Use Dismissible widget to Swipe to delete instead of long pressed
 
