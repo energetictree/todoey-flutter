@@ -1,6 +1,18 @@
-# todoey_flutter
+# Todoey ✓
 
-A new Flutter project.
+## Our Goal
+
+This is a "fork" of [todoey](https://github.com/londonappbrewery/todoey-flutter) a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at www.appbrewery.co
+
+## What it does
+
+A todolist app to keep track of all your tasks.
+
+## the difference
+
+- Latest provider package
+- Using CheckboxListTile widget instead of ListTile with Checkbox trailing so user can check by clicking both the title or the box
+- Swipe to delete instead of long pressed
 
 ## Getting Started
 
