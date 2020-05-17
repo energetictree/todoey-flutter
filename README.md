@@ -7,8 +7,9 @@ This is a "fork" of [todoey](https://github.com/londonappbrewery/todoey-flutter)
 ## What it does
 
 A todolist app to keep track of all your tasks.
-![App feature](https://github.com/energetictree/todoey-flutter/blob/master/images/todoey.gif)
-
+<p align="center">
+  <img  height="400" src="images/todoey.gif">
+</p>
 
 ## the difference
 
